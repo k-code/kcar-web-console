@@ -1,0 +1,16 @@
+<!-- PingWidget.ui.xml -->
+
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'>
+    <g:HTMLPanel>
+        <div>
+            Ping
+        </div>
+        <div>
+            <g:Button ui:field="pingButton" />
+        </div>
+        <div>
+            <g:Label ui:field="pingResultHolder" />
+        </div>
+    </g:HTMLPanel>
+</ui:UiBinder>
