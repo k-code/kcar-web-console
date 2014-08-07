@@ -1,9 +1,10 @@
 package pro.kornev.kcar.client;
 
 import com.google.gwt.core.client.EntryPoint;
-import com.google.gwt.user.client.ui.HTML;
+import com.google.gwt.event.shared.HandlerManager;
 import com.google.gwt.user.client.ui.RootPanel;
-import pro.kornev.kcar.client.status.widgets.ping.PingWidget;
+import pro.kornev.kcar.client.status.ping.PingPresenter;
+import pro.kornev.kcar.client.status.power.PowerPresenter;
 
 /**
  * Entry point classes define <code>onModuleLoad()</code>.
@@ -12,9 +13,13 @@ public class KcarWebConsoleEntryPoint implements EntryPoint {
 
     @Override
     public void onModuleLoad() {
-        RootPanel.get().add(new HTML("GWT App has loaded.<br/>"));
+        HandlerManager eventBus = new HandlerManager(null);
 
-        RootPanel.get().add(new PingWidget());
+        PingPresenter pingPresenter = new PingPresenter();
+        PowerPresenter powerPresenter = new PowerPresenter();
+
+        pingPresenter.go(RootPanel.get());
+        powerPresenter.go(RootPanel.get());
     }
 
 }
