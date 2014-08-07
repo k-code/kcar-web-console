@@ -6,12 +6,7 @@ import com.google.gwt.user.client.ui.Widget;
 /**
  * Base display interface for presenters
  */
-public interface View<T extends View.Presenter> {
-    interface Presenter {
-        void go(final HasWidgets container);
-    }
+public interface View {
 
     Widget asWidget();
-
-    void setPresenter(T presenter);
 }

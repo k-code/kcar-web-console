@@ -1,13 +1,11 @@
 package pro.kornev.kcar.client.status.ping;
 
 import com.google.gwt.core.client.GWT;
-import com.google.gwt.event.dom.client.ClickEvent;
-import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.HasClickHandlers;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.HasWidgets;
-import com.google.gwt.user.client.ui.Widget;
+import pro.kornev.kcar.client.Presenter;
 import pro.kornev.kcar.client.View;
 import pro.kornev.kcar.client.status.rpc.StatusRpcService;
 import pro.kornev.kcar.client.status.rpc.StatusRpcServiceAsync;
@@ -15,13 +13,18 @@ import pro.kornev.kcar.client.status.rpc.StatusRpcServiceAsync;
 /**
  * Ping presenter
  */
-public class PingPresenter implements View.Presenter {
+public class PingPresenter implements Presenter {
 
-    private final PingView pingView;
+    private final Display view;
     private final StatusRpcServiceAsync rpcService;
 
+    public interface Display extends View {
+        void setStatus(boolean success);
+        HasClickHandlers getPingButton();
+    }
+
     public PingPresenter() {
-        pingView = new PingView();
+        view = new PingView();
         rpcService = GWT.create(StatusRpcService.class);
     }
 
@@ -29,7 +32,7 @@ public class PingPresenter implements View.Presenter {
     public void go(HasWidgets container) {
         bind();
         container.clear();
-        container.add(pingView.asWidget());
+        container.add(view.asWidget());
     }
 
     public void onPingClick() {
@@ -47,7 +50,7 @@ public class PingPresenter implements View.Presenter {
 
         @Override
         public void onSuccess(Boolean success) {
-            pingView.setStatus(success);
+            view.setStatus(success);
         }
     };
 
