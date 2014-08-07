@@ -28,6 +28,12 @@
     </properties>
 
     <build>
+        <!--
+         Development application deploy:
+         mvn gwt:compile gwt:run-codeserver - run first and runtime GWT code compilation
+         mvn war:exploded jetty:run         - build web-app and run web-server
+         mvn compile                        - runtime server code compilation
+        -->
         <outputDirectory>${webappDirectory}/WEB-INF/classes</outputDirectory>
 
         <resources>
@@ -106,6 +112,20 @@
                 </executions>
             </plugin>
 
+            <!-- WAR plugin-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.4</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+
             <!-- Jetty plugin -->
             <plugin>
                 <groupId>org.mortbay.jetty</groupId>
@@ -119,6 +139,7 @@
                         </systemProperty>
                     </systemProperties>
                     <webAppSourceDirectory>${webappDirectory}</webAppSourceDirectory>
+                    <scanIntervalSeconds>1</scanIntervalSeconds>
                 </configuration>
                 <executions>
                     <execution>
