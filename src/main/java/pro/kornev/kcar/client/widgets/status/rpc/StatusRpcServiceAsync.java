@@ -1,4 +1,4 @@
-package pro.kornev.kcar.client.status.rpc;
+package pro.kornev.kcar.client.widgets.status.rpc;
 
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import pro.kornev.kcar.shared.Power;

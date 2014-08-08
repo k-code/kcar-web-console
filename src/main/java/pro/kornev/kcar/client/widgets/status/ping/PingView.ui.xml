@@ -1,0 +1,10 @@
+<!-- PingView.ui.xml -->
+
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'>
+    <g:HorizontalPanel>
+        <g:Label>Ping</g:Label>
+        <g:Button ui:field="pingButton" />
+        <g:Label ui:field="pingResultHolder" />
+    </g:HorizontalPanel>
+</ui:UiBinder>

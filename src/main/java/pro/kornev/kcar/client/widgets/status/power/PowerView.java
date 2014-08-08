@@ -1,4 +1,4 @@
-package pro.kornev.kcar.client.status.power;
+package pro.kornev.kcar.client.widgets.status.power;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.i18n.client.NumberFormat;
@@ -8,7 +8,6 @@ import com.google.gwt.uibinder.client.UiTemplate;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.Widget;
-import pro.kornev.kcar.client.View;
 
 /**
  * Power status view

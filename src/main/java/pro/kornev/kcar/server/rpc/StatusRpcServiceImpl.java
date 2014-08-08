@@ -2,7 +2,7 @@ package pro.kornev.kcar.server.rpc;
 
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 
-import pro.kornev.kcar.client.status.rpc.StatusRpcService;
+import pro.kornev.kcar.client.widgets.status.rpc.StatusRpcService;
 import pro.kornev.kcar.shared.Power;
 
 import java.util.Random;

@@ -1,13 +1,11 @@
 package pro.kornev.kcar.client.pages;
 
-import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.HasWidgets;
 import pro.kornev.kcar.client.Action;
 import pro.kornev.kcar.client.Presenter;
 import pro.kornev.kcar.client.View;
-import pro.kornev.kcar.client.status.ping.PingPresenter;
-import pro.kornev.kcar.client.status.power.PowerPresenter;
-import pro.kornev.kcar.shared.Power;
+import pro.kornev.kcar.client.widgets.status.ping.PingPresenter;
+import pro.kornev.kcar.client.widgets.status.power.PowerPresenter;
 
 /**
  * Main page presenter

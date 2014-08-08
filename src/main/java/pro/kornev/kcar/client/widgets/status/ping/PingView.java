@@ -1,4 +1,4 @@
-package pro.kornev.kcar.client.status.ping;
+package pro.kornev.kcar.client.widgets.status.ping;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;

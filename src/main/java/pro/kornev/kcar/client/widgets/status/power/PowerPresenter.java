@@ -1,4 +1,4 @@
-package pro.kornev.kcar.client.status.power;
+package pro.kornev.kcar.client.widgets.status.power;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.Timer;
@@ -7,8 +7,8 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.HasWidgets;
 import pro.kornev.kcar.client.Presenter;
 import pro.kornev.kcar.client.View;
-import pro.kornev.kcar.client.status.rpc.StatusRpcService;
-import pro.kornev.kcar.client.status.rpc.StatusRpcServiceAsync;
+import pro.kornev.kcar.client.widgets.status.rpc.StatusRpcService;
+import pro.kornev.kcar.client.widgets.status.rpc.StatusRpcServiceAsync;
 import pro.kornev.kcar.shared.Power;
 
 /**
