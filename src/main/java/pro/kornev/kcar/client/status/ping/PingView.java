@@ -2,12 +2,14 @@ package pro.kornev.kcar.client.status.ping;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
-import com.google.gwt.event.dom.client.HasClickHandlers;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
-import com.google.gwt.user.client.ui.*;
+import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.Label;
+import com.google.gwt.user.client.ui.Widget;
+import pro.kornev.kcar.client.Action;
 
 /**
  * Ping widget
@@ -20,6 +22,8 @@ public class PingView extends Composite implements PingPresenter.Display {
     @UiField Button pingButton;
     @UiField Label pingResultHolder;
 
+    private Action pingAction;
+
     public PingView() {
         initWidget(uiBinder.createAndBindUi(this));
 
@@ -28,8 +32,8 @@ public class PingView extends Composite implements PingPresenter.Display {
     }
 
     @Override
-    public HasClickHandlers getPingButton() {
-        return pingButton;
+    public void setPingAction(Action action) {
+        pingAction = action;
     }
 
     @Override
@@ -39,5 +43,11 @@ public class PingView extends Composite implements PingPresenter.Display {
         } else {
             pingResultHolder.setText("failed");
         }
+    }
+
+    @SuppressWarnings("unused")
+    @UiHandler("pingButton")
+    void onPingButton(ClickEvent event) {
+        pingAction.execute();
     }
 }

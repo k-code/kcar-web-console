@@ -2,7 +2,10 @@ package pro.kornev.kcar.client;
 
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.event.shared.HandlerManager;
+import com.google.gwt.user.client.ui.FlowPanel;
+import com.google.gwt.user.client.ui.RootLayoutPanel;
 import com.google.gwt.user.client.ui.RootPanel;
+import pro.kornev.kcar.client.pages.MainPagePresenter;
 import pro.kornev.kcar.client.status.ping.PingPresenter;
 import pro.kornev.kcar.client.status.power.PowerPresenter;
 
@@ -15,11 +18,9 @@ public class KcarWebConsoleEntryPoint implements EntryPoint {
     public void onModuleLoad() {
         HandlerManager eventBus = new HandlerManager(null);
 
-        PingPresenter pingPresenter = new PingPresenter();
-        PowerPresenter powerPresenter = new PowerPresenter();
+        MainPagePresenter mainPagePresenter = new MainPagePresenter();
 
-        pingPresenter.go(RootPanel.get());
-        powerPresenter.go(RootPanel.get());
+        mainPagePresenter.go(RootLayoutPanel.get());
     }
 
 }

@@ -13,7 +13,7 @@ import pro.kornev.kcar.client.View;
 /**
  * Power status view
  */
-public class PowerView extends Composite implements View<PowerPresenter> {
+public class PowerView extends Composite implements PowerPresenter.Display {
 
     @UiTemplate("PowerView.ui.xml")
     interface ThisUiBinder extends UiBinder<Widget, PowerView> {}
@@ -23,7 +23,6 @@ public class PowerView extends Composite implements View<PowerPresenter> {
     @UiField Label amperesHolder;
 
     private final NumberFormat fmt;
-    private PowerPresenter presenter;
 
     public PowerView() {
         initWidget(uiBinder.createAndBindUi(this));
@@ -34,10 +33,6 @@ public class PowerView extends Composite implements View<PowerPresenter> {
     }
 
     @Override
-    public void setPresenter(PowerPresenter presenter) {
-        this.presenter = presenter;
-    }
-
     public void update(float volts, float amperes) {
         voltsHolder.setText(fmt.format(volts) + " V");
         amperesHolder.setText(fmt.format(amperes) + " A");
