@@ -1,4 +1,4 @@
-package pro.kornev.kcar.client.pages;
+package pro.kornev.kcar.client.pages.main;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
@@ -9,7 +9,7 @@ import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.HasWidgets;
 import com.google.gwt.user.client.ui.Widget;
-import pro.kornev.kcar.client.Action;
+import pro.kornev.kcar.client.base.Action;
 
 /**
  * Main page view

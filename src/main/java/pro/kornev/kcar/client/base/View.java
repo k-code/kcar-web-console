@@ -1,4 +1,4 @@
-package pro.kornev.kcar.client;
+package pro.kornev.kcar.client.base;
 
 import com.google.gwt.user.client.ui.Widget;
 

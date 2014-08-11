@@ -1,4 +1,4 @@
-package pro.kornev.kcar.client;
+package pro.kornev.kcar.client.base;
 
 /**
  * Action interface. To do some client action Presenter should create the Action and set their to View. And View should

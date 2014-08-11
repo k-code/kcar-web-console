@@ -9,7 +9,7 @@ import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.Widget;
-import pro.kornev.kcar.client.Action;
+import pro.kornev.kcar.client.base.Action;
 
 /**
  * Ping widget

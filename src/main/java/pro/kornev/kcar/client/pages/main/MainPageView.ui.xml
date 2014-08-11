@@ -1,0 +1,73 @@
+<!-- PingView.ui.xml -->
+
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'>
+    <ui:style>
+        .body {
+            margin-top: 50px;
+        }
+        .main {
+            padding-right: 40px;
+            padding-left: 40px;
+        }
+        .sidebar {
+            position: fixed;
+            top: 51px;
+            bottom: 0;
+            left: 0;
+            z-index: 1000;
+            display: block;
+            padding: 20px;
+            overflow-x: hidden;
+            overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+            background-color: #f5f5f5;
+            border-right: 1px solid #eee;
+        }
+    </ui:style>
+
+
+    <g:HTMLPanel>
+        <!-- header -->
+        <div class="container-fluid">
+        <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">K-car - Web control panel</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- body -->
+        <div class="container-fluid {style.body}">
+            <div class="row">
+                <!-- page menu -->
+                <div class="col-sm-3 col-md-2 {style.sidebar}">
+                    <ul class="nav nav-sidebar">
+                        <li>
+                            <g:Anchor ui:field="statusButton" href="#">
+                                <span class="glyphicon glyphicon-dashboard" />
+                                Status
+                            </g:Anchor>
+
+                        </li>
+                        <li>
+                            <g:Anchor ui:field="videoButton" href="#">
+                                <span class="glyphicon glyphicon-facetime-video" />
+                                Video
+                            </g:Anchor>
+                        </li>
+                    </ul>
+                </div>
+                <!-- page content -->
+                <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 {style.main}">
+                    <g:FlowPanel ui:field="contentPanel">
+                        <g:HTML>
+                            <h1 class="page-header">K-car - Web control panel</h1>
+                        </g:HTML>
+                        <g:Label>Choose action</g:Label>
+                    </g:FlowPanel>
+                </div>
+            </div>
+        </div>
+
+    </g:HTMLPanel>
+</ui:UiBinder>

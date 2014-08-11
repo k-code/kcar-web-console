@@ -1,0 +1,13 @@
+<!-- StatusPageView.ui.xml -->
+
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'>
+
+    <g:VerticalPanel>
+        <g:HTML>
+            <h1 class="page-header">Dashboard</h1>
+        </g:HTML>
+        <g:FlowPanel ui:field="pingPanel"/>
+        <g:FlowPanel ui:field="powerPanel"/>
+    </g:VerticalPanel>
+</ui:UiBinder>
