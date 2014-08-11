@@ -4,10 +4,12 @@
              xmlns:g='urn:import:com.google.gwt.user.client.ui'>
 
     <g:VerticalPanel>
-        <g:HTML>
+        <g:HTMLPanel>
             <h1 class="page-header">Dashboard</h1>
-        </g:HTML>
-        <g:FlowPanel ui:field="pingPanel"/>
-        <g:FlowPanel ui:field="powerPanel"/>
+            <div class="row">
+                <g:FlowPanel ui:field="pingPanel"/>
+                <g:FlowPanel ui:field="powerPanel"/>
+            </div>
+        </g:HTMLPanel>
     </g:VerticalPanel>
 </ui:UiBinder>

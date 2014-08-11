@@ -7,6 +7,7 @@ import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiTemplate;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Label;
+import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Widget;
 
 /**
@@ -18,8 +19,8 @@ public class PowerView extends Composite implements PowerPresenter.Display {
     interface ThisUiBinder extends UiBinder<Widget, PowerView> {}
     private static ThisUiBinder uiBinder = GWT.create(ThisUiBinder.class);
 
-    @UiField Label voltsHolder;
-    @UiField Label amperesHolder;
+    @UiField TextBox voltsHolder;
+    @UiField TextBox amperesHolder;
 
     private final NumberFormat fmt;
 
@@ -33,8 +34,8 @@ public class PowerView extends Composite implements PowerPresenter.Display {
 
     @Override
     public void update(float volts, float amperes) {
-        voltsHolder.setText(fmt.format(volts) + " V");
-        amperesHolder.setText(fmt.format(amperes) + " A");
+        voltsHolder.setText(fmt.format(volts));
+        amperesHolder.setText(fmt.format(amperes));
     }
 
 }
