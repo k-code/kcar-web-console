@@ -3,7 +3,8 @@ package pro.kornev.kcar.server.rpc;
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 
 import pro.kornev.kcar.client.widgets.status.rpc.StatusRpcService;
-import pro.kornev.kcar.shared.Power;
+import pro.kornev.kcar.shared.widgets.status.Power;
+import pro.kornev.kcar.shared.widgets.status.exception.PingTimeOutException;
 
 import java.util.Random;
 
@@ -15,8 +16,12 @@ public class StatusRpcServiceImpl extends RemoteServiceServlet implements Status
     private final Random random = new Random();
 
     @Override
-    public boolean ping() {
-        return random.nextFloat() < 0.5f;
+    public float ping() throws PingTimeOutException {
+        float pingTime = random.nextFloat();
+        if (pingTime < 0.9f) {
+            return pingTime;
+        }
+        throw new PingTimeOutException();
     }
 
     @Override

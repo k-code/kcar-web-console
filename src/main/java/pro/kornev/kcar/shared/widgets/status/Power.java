@@ -1,4 +1,4 @@
-package pro.kornev.kcar.shared;
+package pro.kornev.kcar.shared.widgets.status;
 
 import com.google.gwt.user.client.rpc.IsSerializable;
 

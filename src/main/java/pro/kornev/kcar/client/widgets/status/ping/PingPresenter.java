@@ -10,6 +10,7 @@ import pro.kornev.kcar.client.base.Presenter;
 import pro.kornev.kcar.client.base.View;
 import pro.kornev.kcar.client.widgets.status.rpc.StatusRpcService;
 import pro.kornev.kcar.client.widgets.status.rpc.StatusRpcServiceAsync;
+import pro.kornev.kcar.shared.widgets.status.exception.PingTimeOutException;
 
 /**
  * Ping presenter
@@ -17,7 +18,8 @@ import pro.kornev.kcar.client.widgets.status.rpc.StatusRpcServiceAsync;
 public class PingPresenter extends Presenter {
 
     public interface Display extends View {
-        void setStatus(boolean success);
+        void setTime(float time);
+        void timeout();
         void setPingAction(Action action);
     }
 
@@ -58,16 +60,21 @@ public class PingPresenter extends Presenter {
         };
     }
 
-    private AsyncCallback<Boolean> createPingCallBack() {
-        return new AsyncCallback<Boolean>() {
+    private AsyncCallback<Float> createPingCallBack() {
+        return new AsyncCallback<Float>() {
             @Override
             public void onFailure(Throwable throwable) {
-                Window.alert("Ping FAILED\n" + throwable.getMessage());
+                if (throwable instanceof PingTimeOutException) {
+                    view.timeout();
+                }
+                else {
+                    Window.alert("Server error");
+                }
             }
 
             @Override
-            public void onSuccess(Boolean success) {
-                view.setStatus(success);
+            public void onSuccess(Float time) {
+                view.setTime(time);
             }
         };
     }

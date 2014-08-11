@@ -2,6 +2,7 @@ package pro.kornev.kcar.client.widgets.status.ping;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.i18n.client.NumberFormat;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
@@ -20,12 +21,17 @@ public class PingView extends Composite implements PingPresenter.Display {
 
     @UiField TextBox pingResultHolder;
 
+    private final NumberFormat fmt;
+
     private Action pingAction;
 
     public PingView() {
         initWidget(uiBinder.createAndBindUi(this));
 
-        pingResultHolder.setText("failed");
+        pingResultHolder.setText("unknown");
+
+        fmt = NumberFormat.getDecimalFormat();
+        fmt.overrideFractionDigits(3);
     }
 
     @Override
@@ -34,12 +40,13 @@ public class PingView extends Composite implements PingPresenter.Display {
     }
 
     @Override
-    public void setStatus(boolean success) {
-        if (success) {
-            pingResultHolder.setText("success");
-        } else {
-            pingResultHolder.setText("failed");
-        }
+    public void setTime(float time) {
+        pingResultHolder.setText(fmt.format(time));
+    }
+
+    @Override
+    public void timeout() {
+        pingResultHolder.setText("timeout");
     }
 
     @SuppressWarnings("unused")

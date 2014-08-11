@@ -9,7 +9,7 @@ import pro.kornev.kcar.client.base.Presenter;
 import pro.kornev.kcar.client.base.View;
 import pro.kornev.kcar.client.widgets.status.rpc.StatusRpcService;
 import pro.kornev.kcar.client.widgets.status.rpc.StatusRpcServiceAsync;
-import pro.kornev.kcar.shared.Power;
+import pro.kornev.kcar.shared.widgets.status.Power;
 
 /**
  * Power presenter
